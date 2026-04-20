@@ -1,0 +1,157 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Development(imp)\\CURRENT\\IMPIMP\\DotNet 10 CRUD\\CRUDWebAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F07AC764-329A-BB46-C049-C2CD4B38C57A}|CRUDWebAPI\\CRUDWebAPI.csproj|d:\\development(imp)\\current\\impimp\\dotnet 10 crud\\crudwebapi\\crudwebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F07AC764-329A-BB46-C049-C2CD4B38C57A}|CRUDWebAPI\\CRUDWebAPI.csproj|solutionrelative:crudwebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F07AC764-329A-BB46-C049-C2CD4B38C57A}|CRUDWebAPI\\CRUDWebAPI.csproj|d:\\development(imp)\\current\\impimp\\dotnet 10 crud\\crudwebapi\\crudwebapi\\models\\employeemst.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F07AC764-329A-BB46-C049-C2CD4B38C57A}|CRUDWebAPI\\CRUDWebAPI.csproj|solutionrelative:crudwebapi\\models\\employeemst.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F07AC764-329A-BB46-C049-C2CD4B38C57A}|CRUDWebAPI\\CRUDWebAPI.csproj|d:\\development(imp)\\current\\impimp\\dotnet 10 crud\\crudwebapi\\crudwebapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F07AC764-329A-BB46-C049-C2CD4B38C57A}|CRUDWebAPI\\CRUDWebAPI.csproj|solutionrelative:crudwebapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F07AC764-329A-BB46-C049-C2CD4B38C57A}|CRUDWebAPI\\CRUDWebAPI.csproj|d:\\development(imp)\\current\\impimp\\dotnet 10 crud\\crudwebapi\\crudwebapi\\dal\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F07AC764-329A-BB46-C049-C2CD4B38C57A}|CRUDWebAPI\\CRUDWebAPI.csproj|solutionrelative:crudwebapi\\dal\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F07AC764-329A-BB46-C049-C2CD4B38C57A}|CRUDWebAPI\\CRUDWebAPI.csproj|d:\\development(imp)\\current\\impimp\\dotnet 10 crud\\crudwebapi\\crudwebapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F07AC764-329A-BB46-C049-C2CD4B38C57A}|CRUDWebAPI\\CRUDWebAPI.csproj|solutionrelative:crudwebapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F07AC764-329A-BB46-C049-C2CD4B38C57A}|CRUDWebAPI\\CRUDWebAPI.csproj|d:\\development(imp)\\current\\impimp\\dotnet 10 crud\\crudwebapi\\crudwebapi\\crudwebapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{F07AC764-329A-BB46-C049-C2CD4B38C57A}|CRUDWebAPI\\CRUDWebAPI.csproj|solutionrelative:crudwebapi\\crudwebapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\10.0.103\\Roslyn\\Microsoft.CSharp.Core.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F07AC764-329A-BB46-C049-C2CD4B38C57A}|CRUDWebAPI\\CRUDWebAPI.csproj|d:\\development(imp)\\current\\impimp\\dotnet 10 crud\\crudwebapi\\crudwebapi\\migrations\\20260406144156_addtable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F07AC764-329A-BB46-C049-C2CD4B38C57A}|CRUDWebAPI\\CRUDWebAPI.csproj|solutionrelative:crudwebapi\\migrations\\20260406144156_addtable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{c6f34f0d-7ae5-4f3a-be61-fe0c21ae9eb8}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Development(imp)\\CURRENT\\IMPIMP\\DotNet 10 CRUD\\CRUDWebAPI\\CRUDWebAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "CRUDWebAPI\\appsettings.json",
+              "ToolTip": "D:\\Development(imp)\\CURRENT\\IMPIMP\\DotNet 10 CRUD\\CRUDWebAPI\\CRUDWebAPI\\appsettings.json",
+              "RelativeToolTip": "CRUDWebAPI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-06T14:15:32.15Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DatabaseContext.cs",
+              "DocumentMoniker": "D:\\Development(imp)\\CURRENT\\IMPIMP\\DotNet 10 CRUD\\CRUDWebAPI\\CRUDWebAPI\\DAL\\DatabaseContext.cs",
+              "RelativeDocumentMoniker": "CRUDWebAPI\\DAL\\DatabaseContext.cs",
+              "ToolTip": "D:\\Development(imp)\\CURRENT\\IMPIMP\\DotNet 10 CRUD\\CRUDWebAPI\\CRUDWebAPI\\DAL\\DatabaseContext.cs",
+              "RelativeToolTip": "CRUDWebAPI\\DAL\\DatabaseContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T14:06:56.389Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EmployeeMst.cs",
+              "DocumentMoniker": "D:\\Development(imp)\\CURRENT\\IMPIMP\\DotNet 10 CRUD\\CRUDWebAPI\\CRUDWebAPI\\Models\\EmployeeMst.cs",
+              "RelativeDocumentMoniker": "CRUDWebAPI\\Models\\EmployeeMst.cs",
+              "ToolTip": "D:\\Development(imp)\\CURRENT\\IMPIMP\\DotNet 10 CRUD\\CRUDWebAPI\\CRUDWebAPI\\Models\\EmployeeMst.cs",
+              "RelativeToolTip": "CRUDWebAPI\\Models\\EmployeeMst.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T14:05:16.732Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Development(imp)\\CURRENT\\IMPIMP\\DotNet 10 CRUD\\CRUDWebAPI\\CRUDWebAPI\\Program.cs",
+              "RelativeDocumentMoniker": "CRUDWebAPI\\Program.cs",
+              "ToolTip": "D:\\Development(imp)\\CURRENT\\IMPIMP\\DotNet 10 CRUD\\CRUDWebAPI\\CRUDWebAPI\\Program.cs*",
+              "RelativeToolTip": "CRUDWebAPI\\Program.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T13:50:35.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\Development(imp)\\CURRENT\\IMPIMP\\DotNet 10 CRUD\\CRUDWebAPI\\CRUDWebAPI\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "CRUDWebAPI\\Properties\\launchSettings.json",
+              "ToolTip": "D:\\Development(imp)\\CURRENT\\IMPIMP\\DotNet 10 CRUD\\CRUDWebAPI\\CRUDWebAPI\\Properties\\launchSettings.json",
+              "RelativeToolTip": "CRUDWebAPI\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-06T13:59:56.38Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "20260406144156_AddTable.cs",
+              "DocumentMoniker": "D:\\Development(imp)\\CURRENT\\IMPIMP\\DotNet 10 CRUD\\CRUDWebAPI\\CRUDWebAPI\\Migrations\\20260406144156_AddTable.cs",
+              "RelativeDocumentMoniker": "CRUDWebAPI\\Migrations\\20260406144156_AddTable.cs",
+              "ToolTip": "D:\\Development(imp)\\CURRENT\\IMPIMP\\DotNet 10 CRUD\\CRUDWebAPI\\CRUDWebAPI\\Migrations\\20260406144156_AddTable.cs",
+              "RelativeToolTip": "CRUDWebAPI\\Migrations\\20260406144156_AddTable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T14:41:56.944Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CRUDWebAPI.csproj",
+              "DocumentMoniker": "D:\\Development(imp)\\CURRENT\\IMPIMP\\DotNet 10 CRUD\\CRUDWebAPI\\CRUDWebAPI\\CRUDWebAPI.csproj",
+              "RelativeDocumentMoniker": "CRUDWebAPI\\CRUDWebAPI.csproj",
+              "ToolTip": "D:\\Development(imp)\\CURRENT\\IMPIMP\\DotNet 10 CRUD\\CRUDWebAPI\\CRUDWebAPI\\CRUDWebAPI.csproj",
+              "RelativeToolTip": "CRUDWebAPI\\CRUDWebAPI.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-07T09:25:42.311Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Microsoft.CSharp.Core.targets",
+              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\10.0.103\\Roslyn\\Microsoft.CSharp.Core.targets",
+              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\10.0.103\\Roslyn\\Microsoft.CSharp.Core.targets",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAnwFMAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2026-04-07T05:20:44.179Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
