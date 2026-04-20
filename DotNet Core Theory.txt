@@ -1,0 +1,8 @@
+﻿AspNet core thory
+
+https://medium.com/@syeedmdtalha/thank-you-542304a96213
+
+
+custom middeware
+
+https://medium.com/@syeedmdtalha/custom-middleware-in-net-beginners-guide-afb5570f34ef

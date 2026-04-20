@@ -1,0 +1,1041 @@
+								Angular Notes
+																
+Angular project is standalone means we can create component without module now 		
+																
+---Questpond---
+LAb requirement
+- NodeJs : Run Javasript outside browser or compiling our code
+- Visual Studio Code, VIM, Webstorm - IDE
+- Web API 
+
+
+---Day 1---
+Javascript is a dynamic scripting language
+
+var d = 10;
+d = 'pradeep';  // assign string datatype 
+d = true;       // assign boolean datatype 
+
+--------------
+
+function add(x,y)
+{
+	return x + y;
+}
+
+add(10,10);//20
+add(10); //NaN    -- here we pass only one parameter
+add();            -- here we can not pass any parameter
+---------------------------
+var h;
+console.log(h);//undefined
+//
+//
+=10;
+
+Hoisting- Scan your code & move the declaration on the top
+---------------------------------------------
+var x = 10;
+var y = 'pradeep';
+var z  = y - x + 10 ; pradeep1010
+-------------------------------------------
+Typescript
+- Its a programming language developed by Microsoft
+- Superset of Javascript
+- Datatype, OOPS
+- Compiled to JS according to ES(Ecmascript) std
+
+HTML - W3C
+JS - Ecmascript
+
+Ecmascript
+- rules and guidelines for a scripting language
+
+IE11- ES5
+Chrome,Edge,Mozilla - ES6+  let,class
+
+NodeJs
+- Cross platform
+- Javascript runtime enivronment
+- Free & open source
+- Create servers using nodejs
+- Tools called as NPM (Node Package Manager)
+
+Node Package Manager
+- command that allows you to download the packages from repository 
+- It resolved inter-dependencies 
+
+Install Typescript
+> npm install typescript
+> tsc <filename>.ts
+> node <filename>js
+
+
+---Day 2---
+for-of  --similar to foreach  loop
+for-in  -- similar to for loop
+
+
+Module
+- using "export" for exposing the class/interface/function/const
+- using "import" for consuming
+
+Angular 
+- Databinding framework
+- Component based architecture
+- Used for creating SPA (Single Page Application)
+- Write Declarative statement rather than imperative statements
+
+Adding typescript configuration file in typescript
+> tsc -init
+
+Next Session
+- Angular project creation & undertstanding structure
+- Databinding
+- Directives
+- Pipes
+
+---Day 3---
+
+Angular CLI (Command line interface)
+- Create, Build, compile, serve the angular app
+- Create any files components, directive, pipes, service, class
+>npm install @angular/cli@17.3.8
+>ng new <projectName> --skip-install
+>cd <projectName>
+>npm install
+
+Note : use npm i when we want run application by creating node_modules folder inside our project
+package.lock.json : contain exact version of Angular peoject library 
+tsconfig.json : contain configuration of typescript
+angular.json : contain configuration of angular project
+
+Decorators - Attribute for class
+	it gives extra information about the class 
+
+Class decorators
+@Component
+@Directive
+@Pipe
+@Injectable
+
+Method Decorator
+@HostListener()
+
+Field Decorator
+@Input() - pass data from parent comp to child comp
+@Output() - pass data from child comp to parent comp
+@ViewChild() - access child component or element using this or acccess HTML DOM
+
+---------------------------------------------------------------
+Example 1 :
+Here is a common use case where we change the background color of a directive when the mouse enters or leaves the host element:
+
+TypeScript
+import { Directive, HostListener, HostBinding } from '@angular/core';
+
+@Directive({
+  selector: '[appHighlight]'
+})
+export class HighlightDirective {
+
+  @HostBinding('style.backgroundColor') backgroundColor: string = 'transparent';
+
+  // Listen for the 'mouseenter' event on the host element
+  @HostListener('mouseenter') onMouseEnter() {
+    this.backgroundColor = 'yellow';
+  }
+
+  // Listen for the 'mouseleave' event on the host element
+  @HostListener('mouseleave') onMouseLeave() {
+    this.backgroundColor = 'transparent';
+  }
+}
+
+Handling Global events
+------------------------
+// Detect window resize
+@HostListener('window:resize', ['$event'])
+onResize(event: any) {
+  console.log('New window width:', event.target.innerWidth);
+}
+
+Example 2:
+
+ Note : you can access element in ngAfterViewInit()
+html :
+
+<div #tempElement>
+  <input type="text" value="Farukh">
+</div>
+
+<button (click)="readValue()">Read Value</button>
+
+---------------
+component.ts
+-----------
+
+import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+
+@Component({
+  selector: 'app-test',
+  templateUrl: './test.component.html'
+})
+export class TestComponent implements AfterViewInit {
+
+  @ViewChild('tempElement') tempElement!: ElementRef;
+
+  ngAfterViewInit() {
+    console.log(this.tempElement.nativeElement);
+  }
+
+  readValue() {
+    const input = this.tempElement.nativeElement.querySelector('input');
+    console.log(input.value);
+  }
+}
+
+What is ViewChild?
+Used to access DOM elements or child components from the template.
+
+What is ElementRef?
+A wrapper that gives direct access to native DOM element.
+
+Why is ElementRef dangerous?
+It can cause XSS and breaks Angular abstraction.
+
+So better option:
+👉 Renderer2
+
+---------
+constructor(private renderer: Renderer2) {}
+
+changeColor() {
+  this.renderer.setStyle(
+    this.tempElement.nativeElement,
+    'backgroundColor',
+    'yellow'
+  );
+}
+
+---------------------------------------------------------------
+
+
+ng serve - compile build, bundling on memory, spin up live development serve
+
+ng s -o = after compilation (compilation) open browser running out angular project on default port 4200
+ng s -o --port 4500 = if you want to run our application on 4500 port then this command is used
+
+Component 
+- Class + Template + Metadata
+- Component can be exposed like a tag using selector 
+-Creating a new component
+ > ng g c <componentName>
+ 
+Databinding
+- Its a mechanism to bind data values into html DOM & turn user activities into action
+- or communication between component to its html (template) or vice versa
+- Types of binding
+
+  Interpolation		Component => DOM   syntax :{{}}   : one direaction
+  Property Binding 	Component => DOM  syntax :[]      : one direaction  apply on attributes of html tag
+  Event Binding 	DOM => Component  syntax : ()     : one direaction
+  Two way Binding	Component <=> DOM  using ngModel   syntax : [(ngModel)]   Importing "FormsModule"  : Two way direaction
+  
+Directives
+- Extending the power of existing html element
+- It changes the appearance & behaviour of html element
+- Types of directive
+  1>Component - Its a directive with a template(html)
+  2>Structural directive - Altering, Adding or removing the DOM element  *ngIf, *ngFor
+  
+  Notes: always used trackBy for ngfor for searcing faster in DOM
+  
+  3>Attribute - Change the appearance of DOM element  
+   ngClass, ngSyle, ngModel
+  Notes: now ngClass are written in [class] now 
+  Ex: [class.rs] where r1 is class present in style.scss
+	  [style.color]='red' here style represent ngStyle
+	  
+  Custom directive
+  ->ng g d <directiveName>   ElementRef
+  
+  
+  
+Next Session
+-Custom directive
+-Pipes
+-Custom pipe
+-Routing
+
+---Day 4---
+Creating project with modules
+>ng new <projectName> --no-standalone
+
+@NgModule : is decorator which represent class in module 
+- Container that contains multiple components, directive, pipe, service, other modules
+
+Installing any packages in project
+>npm install <packageName> --save
+
+Note : --save store this packages in packge.json also so use it 
+
+Pipes
+-Transform bound values before displaying
+-number, uppercase, lowercase, date, currency, json
+
+Creating custom pipes
+>ng g p <pipeName>
+
+Routing
+-Loading a webpage based on requested url
+-Navigating from one page to other
+
+Steps to implement routing in angular
+- Import module "RouterModule"
+- Define list of routes
+   const routes: Routes = [
+  {path:'databinding', component: DatabindingComponent},
+  }
+- Map the RouterModule with routes
+	RouterModule.forRoot(routes)
+- Add place holder in app.component.html
+  <router-outlet></router-outlet>
+- Add navlink
+    <a class="nav-link" routerLinkActive="highlight" [routerLink]="['databinding']">DataBinding</a>
+
+Next Week
+-Routing - Reading route data, querystring, navigating	
+-Data Sharing
+-Angular Forms
+-unknown & any
+
+---Day 5---
+
+Activatedroute class
+
+ActivatedRoute is used to read route parameters and query strings in Angular using params,
+ queryParams, or snapshot
+
+- first we need to inject in constructor
+	import { ActivatedRoute } from '@angular/router';
+	constructor(private activatedRoute: ActivatedRoute) {}
+
+
+- To read route parameter & querystring 
+	{ path: 'product/:id', component: ProductComponent }
+
+	this.activatedRoute.params.subscribe(params => {
+  		this.id = params['id'];
+	});
+
+
+   for querystring
+	/product?id=10&name=mobile
+
+	this.activatedRoute.queryParams.subscribe(params => {
+  		this.id = params['id'];
+  		this.name = params['name'];
+	});
+
+** Alternative without subscribe
+
+this.id = this.activatedRoute.snapshot.paramMap.get('id');
+this.id = this.activatedRoute.snapshot.queryParamMap.get('id');
+
+
+Router class
+
+- To navigate from one component to other
+	 this.router.navigate(['dir', this.product.productId], {
+      queryParams: {
+        city: "mumbai", country: 'india'
+      }
+    });
+	
+
+Data Sharing
+-@Input() - Used to pass data from parent to child component in terms of property (created in child component)
+-@Output()- Used to pass data from child to parent in terms of events (created in child component)
+-@ViewChild() - Creating a ref of child component in parent & taking control of child component (created in Parent)
+
+** @Input() – Parent ➝ Child (data)
+
+Child component
+@Input() userName!: string;
+
+Parent component
+<app-child [userName]="'Farukh'"></app-child>
+
+
+** @Output() – Child ➝ Parent (event)
+
+Child component :
+@Output() notify = new EventEmitter<string>();
+
+sendData() {
+  this.notify.emit('Hello Parent');
+}
+
+Parent template
+<app-child (notify)="receiveData($event)"></app-child>
+
+Parent component
+receiveData(msg: string) {
+  console.log(msg);
+}
+
+
+@ViewChild() – Parent controls Child
+
+@ViewChild(ChildComponent) child!: ChildComponent;
+
+ngAfterViewInit() {
+  this.child.childMethod();
+}
+
+
+child.component
+
+childMethod() {
+  console.log('Called from parent');
+}
+
+
+@Input() → pass data parent to child
+
+@Output() → send events child to parent
+
+@ViewChild() → access child component or element directly
+
+--------------------------------------------------------
+
+---Day 6--
+Angular Forms
+- Template Driven approach
+- Model Driven approach (Reactive Forms)
+
+Control States
+- pristine => dirty
+- untouched => touched
+- valid <=> invalid
+
+Note : we want to show error only when form is dirty or touched and invalid
+
+Steps to implement TemplateDriven approach
+- Design a form and add template ref of type "ngForm"
+   <form #frm="ngForm"></form>
+- Add input elements and provide name & ngModel attribute 
+  Note : add FormsModule in component decorator imports array
+  Ex:
+  <input type="text" class="form-control" name="productId" [(ngModel)]="product.productId" />
+
+- Add ngSubmit event and pass frm object 
+  (ngSubmit)="saveProduct(frm)"
+
+- To add a validation, use html5 attributes
+  required, pattern, email, max, min, maxlength, minlength, phone
+
+- To show error message
+	 <div *ngIf="frm.controls['productCode']?.errors">
+		<span class="text-danger">Product Code is mandatory</span>
+	</div>
+---------------------------------------------------------------------
+
+Steps to implement Model Driven approach
+
+- Import a module in app.module.ts "ReactiveFormsModule"
+- Design the model in the ts code, using FormGroup & FormBuilder from @angular/Forms;
+
+	constructor(private fb:FormsBuilder){}
+	this.frm = this.fb.group({
+      productId: this.fb.control('')
+	  })
+
+- Map the fromGroup & formControl in html template
+    <form [formGroup]="frm">
+            <div class="form-group">
+                <label>Product Id</label>
+                <input type="text" class="form-control" formControlName="productId" />
+            </div>
+	</form>
+
+- Add ngSubmit event & no need to pass formgroup obj
+  (ngSubmit)="saveProduct()"
+- To add valdiation, add in ts code
+  productCode: this.fb.control('',{updateOn:'blur', validators: [Validators.required]})
+- To show error message
+	 <div *ngIf="frm.controls['productCode']?.errors">
+		<span class="text-danger">Product Code is mandatory</span>
+	</div>
+	
+---Day 7---
+
+ReactiveX
+- A library used for async programming with observable streams
+- Rx.Net, RxJava, RxJs
+
+RxJs
+  Observable
+  - Representation of set of values
+  - function that can return stream of values over the time (producer)
+  - Values can range from 0 to infinity
+  - Observable are called lazy, coz if there is no subsvcriber, it will not publish data
+  - This are unicast, Each subscriber gets independent instance of observable
+  Observer
+  - This are the one that listen to your produces data & notify the subscribers
+  - It has 3 callback function, it talks about different notification delivered by observable
+    next() - success info
+	error() - error info
+	complete() - a flag indicating end of stream
+  Operator
+  - Function that takes 1 observable as input & return another observable after manipulation
+  - pipe(op1, op2, op3)
+  
+  Subject
+  - Special type of observable that allows mulitcast to multiple observers (subscribers)
+  - It acts both producer & subscriber
+  - IT can emit always new values to subscriber like event emitter
+  
+  BehaviorSubject
+  - It is similar to regular subject but it can maintain the initial value.
+  - It makes sure that whoever is subscribing to the BehaviourSubject will ateast get last data always available.
+  
+  ReplaySubject
+  - It is similar to regular subject.You can configure to hold x values for a period of time.
+  - It can maitain a buffer size. 
+  - IT makes sure that whoever is subscribing to the ReplaySubject will alteast get those x no of data that is already stored.
+  
+1. Subject (The "Live Radio")
+A standard Subject is multicast, but it has no memory. If you tune into a radio station late, you don't hear the songs that played before you joined; you only hear what is playing right now.
+
+Theory: It does not store values. Subscribers only receive data emitted after they subscribe.
+
+Best for: Event bus logic, like clicking a "Global Save" button.
+
+TypeScript
+const subject = new Subject<number>();
+
+subject.next(1); // Lost (no one is listening)
+
+subject.subscribe(val => console.log('Sub A:', val));
+
+subject.next(2); // Sub A gets 2
+2. BehaviorSubject (The "Last Played")
+This is the most common Subject in Angular. It always has a "current value." When you subscribe, it immediately gives you the latest value it emitted.
+
+Theory: It requires an initial value. It stores the latest value and emits it to new subscribers immediately upon subscription.
+
+Best for: Storing "Current User" info or "Form State" in a service.
+
+TypeScript
+// Requires an initial value (0)
+const bSubject = new BehaviorSubject<number>(0); 
+
+bSubject.subscribe(val => console.log('Sub A:', val)); // Immediately gets 0
+
+bSubject.next(10); // Sub A gets 10
+
+bSubject.subscribe(val => console.log('Sub B:', val)); // Immediately gets 10
+3. ReplaySubject (The "DVR / Catch-up TV")
+This Subject acts like a recorder. It remembers a specific number of previous values and "replays" them for any new subscriber.
+
+Theory: It does not need an initial value. You define a buffer size (how many items to remember).
+
+Best for: Caching a list of data from an API so that multiple components can get the same history without re-calling the server.
+
+TypeScript
+// Buffer size of 2 (Remember last 2 values)
+const rSubject = new ReplaySubject<number>(2);
+
+rSubject.next(1);
+rSubject.next(2);
+rSubject.next(3);
+
+// Subscriber joins late
+rSubject.subscribe(val => console.log('Sub A:', val)); 
+// Output: 2, 3 (It missed 1, but got the last 2)
+
+
+
+---Day 8---
+
+Services
+- Used to share common functionality across components
+- It create singleton object by default
+ Create => Provide => Inject => Use
+>ng g s <seviceName>
+
+TreeShaking
+Its a comipiler option to check if the service is not referenced anywhere then remove the code from bundle
+Size of bundle is reduces & inital load performance is improved
+
+
+Steps to call webapi using Angular
+- Import a module "HttpClientModule" in app.module.ts
+- Create a service and inject a class "HttpClient"
+- Create methods for get,post,put,delete
+	 getProducts() {
+    return this.httpClient.get<Product[]>('https://localhost:7241/api/ProductAPI/getall');
+  }
+- Inject a service in the component/directive/pipe
+- Call the service method & call subscribe method
+  this.productService.getProducts().subscribe({
+      next: (resp) => {
+        this.products = resp;
+      },
+      error:(err) => {
+        console.log(err);
+      }
+    })
+	
+---Day 9---
+Adding environment file
+> ng g environments
+
+Build the angular project, creates a dist folder within the root folder
+>ng build      							== build for production
+>ng build -configuration=development   	== build for development environment
+
+
+Lazy loading
+-Loading the module/component at runtime based on requested url
+-Initial load size of application will be reduced by implmenting lazt loading, which will improve performance.
+>ng g m <module> --route=<pathName> --module=app
+-Lazy loading can be implmented using standalone component as well
+-Command for creating standalone component
+ >ng g c <compName> --standalone
+ 
+  { path: 'userhome', loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule) },
+  { path: 'student', loadComponent: () => import('./student/student.component').then(c => c.StudentComponent) },
+
+---Day 10---
+
+Router guards
+- Guards are used to protect route from unauthorized access
+>ng g g <guardName>
+
+Types of guards
+- canActivate - Triggers when route is activated
+- canDeActivate - Tiggers when route is deactivated
+- canActivateChild - Triggers for children route but applied on parent route
+- canMatch - Similar to canActivate, but applied on lazy loading routes. This avoid downloading of js chunk if not having access.
+
+---Day 11---
+
+Life cycle hooks
+- Angular manages creation, rendering, data bound properties etc
+- Angular offers given lifecycle hooks that allow you to execute custom logic
+
+OnChanges - Triggerd when @Input() parameter is changed @Input()
+OnInIt - Tiggered on initialation of component
+DoCheck - Triggered when change detection happens
+AfterContentInit - Triggered when projected content is ready & available for access in code @ContentChild()
+AfterContentChecked - 
+AfterViewInit - @ViewChild()
+AfterViewChecked
+OnDestroy
+
+
+Projection
+- Projecting the content within the start & close tag to render it inside the component template
+ <ng-content></ng-content>
+ @ContentChild()
+ 
+---Day 12---
+
+
+------------------------
+
+practice 
+
+class Person {
+	personId:number;
+	personName!:string;
+	
+	constructor(pid?:number,pNumber?:string)
+	{
+		if(!pid && !pNumber)
+		{
+			this.personId = pid;
+			this.personName = pNumber ?? '';
+		}
+		else
+		{
+			this.personId = 0;
+			this.personName = '';
+		}
+
+	}
+	
+	showDetails(pid:number)
+	{
+		console.log($`pid is {pid}`);
+	}
+
+	showDetails()
+	{
+		console.log('PersonId ${this.personId}');
+		console.log('Person Name ${this.personName}');
+	}
+
+}
+
+let perObj = new Person(101,'Farukh');
+perObj.showDetails();
+
+by using tsc Person  it convert into  javascript code for run 
+node Person;
+
+---------------------------
+
+inheritence 
+
+class Employee extends Person
+{
+	empId:number;
+}
+
+let EmploueeObj = new Employee();
+
+EmploueeObj.
+
+-------------------------------
+Generics
+
+class Store<T>
+{
+	private List:T[];
+	
+	constructor()
+	{
+		this.List = [];
+	}
+	
+	additemPush(item : T)
+	{
+		this.List.push(item);
+	}
+	
+	removeItems(item:T)
+	{
+		this.List.pop(item);
+	}
+	
+	displayAllItems()
+	{
+		console.log('-- Displaying All Items -----');
+		for(let i of list)
+		{
+			console.log('i',i);
+		}
+	}
+}
+
+let storeObj = new Store<string>();
+storeObj.additemPush('a');
+storeObj.additemPush('b');
+storeObj.additemPush('c');
+
+---------------------------------------
+
+export interface IStudent
+{
+	studentId : number;
+}
+
+
+export class Student implements IStudent
+{
+	studenId : number;
+}
+
+
+-------------------------
+			Array
+			
+let num:int[] = [2,3,54,6];
+
+-------------------------
+
+Therad
+
+Paraller execution
+
+
+static void fun1()
+{
+	for(int i=0;i<100;i++)
+	{
+		console.writeLine();
+	}
+}
+
+static void fun2()
+{
+	for(int i=0;i<100;i++)
+	{
+		Console.writeLine();
+	}
+}
+
+
+
+static void Main()
+{
+	fun1();
+	fun2();
+	Console.
+	Console.Readkey();
+}
+
+---------------------------------------------------------------------------
+Angular Exercise 1:
+export class Product
+{
+	pId:number=0;
+	PName!:string;
+	pDescription!:string;
+	price:number;
+	qty:number;
+}
+
+
+@component()
+class ProductComponent implements Oninit
+{
+	productList:string[] = [];
+	let product1 = new Product(1,'LG','Electronics',100000,3);
+	let product2 = new Product(2,'Samsung','Mobile',300000,32);
+	
+	ngOninit()
+	{
+		this.productList.push(product1);
+		this.productList.push(product2);
+
+	}
+	
+
+	AddNewProduct()
+	{
+		let product3 = new Product(3,'whirlpool','Fridge',20000,4);
+		this.productList.push(product3);
+	}
+	
+}
+
+html code
+
+<ul *ngFor="let product of productList">
+		<li>{{product.pId}}</li>
+		<li>{{product.PName}}</li>
+		<li>{{product.pDescription}}</li>
+		<li>{{product.price}}</li>
+		<li>{{product.qty}}</li>
+</ul>
+<button class="btn btn-primary" (click)="AddNewProduct()">Add</button>
+
+
+-------------------------------
+imp note :
+
+1> when array declare and when we add response data in array by push if error occure then make empty or before push also
+ bcoz after push if you load browser again then more data added.
+ex: int[] arr = new int[];
+in subscribe({
+	next(res)=>{
+		this arr = [];  // first empty then push
+		this arr.push(res);
+	},
+	err()=>{
+		this.arr=[] // assign empty when error occur
+	}
+})
+
+2> find current value of aray[pos-1]
+
+3> when you want to perform some changes in existing array element then use scope Operator [...arr]
+  Ex: here i want to new properties in array element then 
+
+
+3> in typescript of javascript month is always + 1 if you wanrt to caluculate current month then use date.getMonth() + 1
+
+4> handling null or undefined for variable use !
+
+5> while pass data to post method create one object and mapping it
+   addProject(data:Item){
+		let addItem:Item={
+              id = data.id,
+			  name = data.name
+		}
+		this.addProjectData(addItem).subscribe({
+
+		})
+   }
+
+6> when we go to the html first check data is present or not using If()
+  Ex 1 : in ts data store in products array then 
+    html :
+	 if(Array.isArray(products) && products.length>0) 
+	       {
+             // then add logic here
+		   }
+  Ex 2:
+     @if (products?.length) { }
+
+7> handling error in model driven form try to optimize code like.
+   get f() { return this.form.controls; }
+   HTML: f.name.errors?.required.
+
+8> in services folder always create _index.ts file where you store your services path and try to import
+  by using _index.ts path only 
+
+9> install prettier and eslint for angular code extension in vs code.
+
+10 > when you subscribe api with obervables then try to unsubscribe when component destry right now mostly use 
+while subscribe(takeuntildestry()) as alternative
+
+11> avoid to use any datatype
+
+12> always use track or trackby when use @for or *ngFor()
+
+13> Never hardcode API URLs in your services. Always use environment.ts and environment.prod.ts.
+ This allows you to swap configurations automatically during ng build.
+ by using following command 
+  ng build -configuration=production
+
+14> 
+The "Classic" Way: ng-template & ng-container
+This is what you remembered. You define the "blueprint" once and stamp it out multiple times using ngTemplateOutlet.
+<ng-template #dropdownTemplate let-label="label">
+  <label>{{ label }}</label>
+  <select class="form-control">
+    @for (item of products; track item.id) {
+      <option [value]="item.id">{{ item.name }}</option>
+    }
+  </select>
+</ng-template>
+
+<ng-container 
+  *ngTemplateOutlet="dropdownTemplate; context: { label: 'Shipping Origin' }">
+</ng-container>
+
+<hr>
+
+<ng-container 
+  *ngTemplateOutlet="dropdownTemplate; context: { label: 'Delivery Destination' }">
+</ng-container>
+
+
+15> i have use bundleservice in Angular project after 15 min idle laptop it goes to the login page
+
+16> try to use filter() , find() ,some() and in html | async to handle observables instead of subscribed in ts code
+
+
+17 > you want to pass data from one component to another and store it then use localstorage or sessionstorage and try
+   to make empty after use also or make empty before set()
+    
+
+
+
+	1. Array Methods Cheat Sheet (Data Manipulation)
+
+	Method				Theory							Coding Example						Expected Result (The Output)
+
+	map()			Creates a new array by 				[1, 2, 3].map(x => x * 2)						[2, 4, 6]
+					transforming every element.
+	
+
+	filter()   		Returns all items that pass 		[10, 20, 30].filter(x => x > 15)				[20, 30]
+					a specific condition.
+
+	find()			Returns the first matching 			emps.find(e => e.id === 1)					{id: 1, name: 'John'}
+					element (or undefined).
+
+	findIndex()		Returns the index of the first		['a', 'b', 'c'].findIndex(x => x === 'b')		1
+					 match (or -1).
+
+	some()			Returns true if at least one		[1, 2, 3].some(x => x > 2)						true
+					 item matches.
+
+
+	every()		Returns true only if all items match.	[1, 2, 3].every(x => x > 0)						true
+
+
+	reduce()	Condenses array into a single 			[1, 2, 3].reduce((acc, val) => acc + val, 0)	6
+				value (like a sum).
+
+	includes() 	Checks if a primitive value exists 		['Red', 'Blue'].includes('Red')					true
+				in the array.
+
+	slice()		Returns a copy of a portion 			['a', 'b', 'c'].slice(0, 2)						['a', 'b']
+				(Original safe).
+
+	splice()	Removes/Adds items (Modifies original).	arr.splice(0, 1) // Remove 1 item at index 0	[The removed item]
+
+
+
+
+	2. String Methods Cheat Sheet (Text Formatting)
+
+
+	split()				Converts a string into an Array.	"A,B,C".split(",")				["A", "B", "C"]
+
+	trim()				Removes spaces from start and end.	" Hello ".trim()				"Hello"
+
+	toLowerCase()      Makes all letters small 				"ADMIN".toLowerCase()			"admin"
+						(good for comparison).
+
+	includes()			Checks if a substring exists 		"Angular".includes("ng")		true
+						inside a string.
+
+	replace()			Replaces the first match with 		"Hi John".replace("John", "Doe")  "Hi Doe"
+						new text.
+
+	substring()			Extracts text between two index 	"DOTNet".substring(0, 3)			"DOT"
+						positions.
+
+	startsWith()		Checks the beginning of the string.	"EMP101".startsWith("EMP")			true
+
+
+
+
+	Question 1 : How would you get the names of all employees in the 'Sales' department?
+	const result = 	employees
+  					.filter(emp => emp.dept === 'Sales') // Step 1: Selection
+  					.map(emp => emp.name);               // Step 2: Transformation
+
+	Output = ["John", "Sarah", "Mike"]
+
+
+find vs filter: find returns the object itself; filter returns an array containing the object.
+
+some vs includes: includes only works for simple values (like 5 or "Hi"); some works for complex objects (like emp.id === 5).
+
+map vs forEach: map returns a new array (Functional); forEach returns nothing (used for loops/logs).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
